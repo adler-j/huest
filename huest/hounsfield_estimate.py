@@ -24,13 +24,13 @@ def hounsfield_value(formula, density, energies, spectrum=None):
 
     formula = str(formula)
     density = float(density)
-    energies = np.atleast_1d(energies)
+    energies = np.array(energies, ndmin=1, dtype='float')
 
     if spectrum is None:
         spectrum = np.ones_like(energies)
     else:
-        spectrum = np.asarray(spectrum)
-        assert spectrum.shape == energies.shapes
+        spectrum = np.array(spectrum, ndmin=1, dtype='float')
+        assert spectrum.shape == energies.shape
     spectrum /= spectrum.sum()
 
     attenuation = np.array([xrl.CS_Total_CP(formula, energy)
@@ -44,5 +44,8 @@ def hounsfield_value(formula, density, energies, spectrum=None):
 
     mean_att = np.sum(attenuation * spectrum)
     mean_water_att = np.sum(attenuation_water * spectrum)
+
+    print(attenuation)
+    print(attenuation_water)
 
     return (density * mean_att / mean_water_att - 1.0) * 1000.0

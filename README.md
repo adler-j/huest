@@ -30,8 +30,8 @@ Compute HU value of water
 Compute the HU value of bone with a given energy spectrum
 
     >>> import huest
-    >>> density = 1.0  # g / cm^3
-    >>> energies = [0.02, 0.04, 0.06, 0.08]  # kilovolt
-    >>> spectrum = [1, 2, 2, 1]  # relative density of each energy
+    >>> density = 1.92  # g / cm^3
+    >>> energies = [40, 60, 80]  # kilovolt
+    >>> spectrum = [2, 2, 1]  # relative density of each energy
     >>> huest.hounsfield_value('Bone, Cortical (ICRP)', density, energies, spectrum)
-    0.0
+    2617.5413064730405
