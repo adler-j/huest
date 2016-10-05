@@ -7,15 +7,14 @@ Includes functionality for
 * Computing HU value from a given material composition and a density
 * Computing the density from a given material composition
 
-# Dependencies
-
-Uses [xraylib](https://github.com/tschoonj/xraylib) in order to find the attenuation coefficients by the material.
-
 # Installation
 
-Clone the repository and run (in the root folder of the repository)
+Simply run
 
-    pip install -e .
+    pip install huest
+
+The library uses [xraylib](https://github.com/tschoonj/xraylib) in order to find the attenuation coefficients by the material.
+This needs to be installed separately.
 
 # Examples
 
@@ -35,3 +34,11 @@ Compute the HU value of bone with a given energy spectrum
     >>> spectrum = [2, 2, 1]  # relative density of each energy
     >>> huest.hounsfield_value('Bone, Cortical (ICRP)', density, energies, spectrum)
     2617.5413064730405
+
+Can also be used to compute densities from HU values
+
+    >>> hu_value = 2000.0
+    >>> energies = [40, 60, 80]
+    >>> spectrum = [2, 2, 1]
+    >>> density = huest.density('Bone, Cortical (ICRP)', hu_value, energies, spectrum)
+    1.5922416669281303

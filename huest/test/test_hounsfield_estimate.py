@@ -99,14 +99,14 @@ def test_density_zero_density():
 # -- Combinations --
 
 def test_inverses_named():
-    material = 'Water, Liquid'
+    material = 'Bone, Cortical (ICRP)'
     density = 1.05
     energies = [50, 60]
     spectrum = [1, 1]
     hu_value = huest.hounsfield_value(material, density, energies, spectrum)
     density_out = huest.density(material, hu_value, energies, spectrum)
 
-    assert density_out == density
+    assert abs(density_out - density) < 0.01
 
 
 if __name__ == '__main__':

@@ -87,4 +87,4 @@ def density(formula, hu_value, energies, spectrum=None):
     mean_att = np.sum(attenuation * spectrum)
     mean_water_att = np.sum(attenuation_water * spectrum)
 
-    return (mean_att / mean_water_att) * (hu_value + 1000.0) / 1000.0
+    return (mean_water_att / mean_att) * (hu_value + 1000.0) / 1000.0
