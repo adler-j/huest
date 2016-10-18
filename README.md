@@ -22,7 +22,7 @@ Compute HU value of water
 
     >>> import huest
     >>> density = 1.0  # g / cm^3
-    >>> energy = 0.05  # kilovolt
+    >>> energy = 50  # kilovolt
     >>> huest.hounsfield_value('Water, Liquid', density, energy)
     0.0
 
