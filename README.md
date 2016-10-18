@@ -37,8 +37,23 @@ Compute the HU value of bone with a given energy spectrum
 
 Can also be used to compute densities from HU values
 
+    >>> import huest
     >>> hu_value = 2000.0
     >>> energies = [40, 60, 80]
     >>> spectrum = [2, 2, 1]
     >>> density = huest.density('Bone, Cortical (ICRP)', hu_value, energies, spectrum)
     1.5922416669281303
+
+The full list of supported materials can be aquired from `xraylib`:
+
+    >>> import xraylib
+    >>> xraylib.GetCompoundDataNISTList()
+    ['A-150 Tissue-Equivalent Plastic',
+     ...,
+     'Xylene']
+     
+Materials can also be given accordin to their stoichiometric composition. Note that water is not exactly `'H2O'`:
+
+    >>> import huest
+    >>> huest.hounsfield_value('H2O', 1, 50)
+    0.10973551267046133
