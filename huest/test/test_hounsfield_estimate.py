@@ -78,7 +78,7 @@ def test_density_spectrum():
                             hu_value, energies, spectrum)
 
     # This should be large
-    assert density > 1.0
+    assert density > 1.5
 
 
 def test_density_invalid_spectrum_size():
