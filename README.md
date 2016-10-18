@@ -14,7 +14,7 @@ Simply run
     pip install huest
 
 The library uses [xraylib](https://github.com/tschoonj/xraylib) in order to find the attenuation coefficients by the material.
-This needs to be installed separately.
+This needs to be [installed separately](https://github.com/tschoonj/xraylib/wiki/Installation-instructions).
 
 # Examples
 
@@ -44,7 +44,7 @@ Can also be used to compute densities from HU values
     >>> density = huest.density('Bone, Cortical (ICRP)', hu_value, energies, spectrum)
     1.5922416669281303
 
-The full list of supported materials can be aquired from `xraylib`:
+The full list of supported materials can be acquired from `xraylib`:
 
     >>> import xraylib
     >>> xraylib.GetCompoundDataNISTList()
@@ -52,7 +52,7 @@ The full list of supported materials can be aquired from `xraylib`:
      ...,
      'Xylene']
      
-Materials can also be given accordin to their stoichiometric composition. Note that water is not exactly `'H2O'`:
+Materials can also be given according to their stoichiometric composition. Note that water is not exactly `'H2O'`:
 
     >>> import huest
     >>> huest.hounsfield_value('H2O', 1, 50)
